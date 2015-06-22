@@ -5,7 +5,7 @@
 //         Find the sum of all the multiples of 3 or 5 below 1000.
 // Date of first attempt: 2015-06-10 
 // Date completed: 2015-06-10, 467887th person to complete.
- 
+// Test. 
 
 #include <iostream>
 #include <vector>
