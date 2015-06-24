@@ -15,26 +15,29 @@ using namespace std;
 
 vector <int> FibonacciSequence;
 int UpperLimit;
-int Fibonacci=0;
 
 int main(){
 
-  cout << "Upper Limit? ";
-  cin >> UpperLimit;
+  //cout << "Upper Limit? ";
+  //cin >> UpperLimit;
 
-  int LowerLimit=0;
+  int FirstFibonacci=0;
+  int SecondFibonacci=1;
+  int ThirdFibonacci;
 
-  for (int i=LowerLimit; i<=UpperLimit; i++){
-Fibonacci = Fibonacci +     
-FibonacciSequence.push_back(i);
+  for (int i=0; i<=10; i++){
+    ThirdFibonacci=FirstFibonacci+SecondFibonacci;
+    FibonacciSequence.push_back(ThirdFibonacci);
+    SecondFibonacci=ThirdFibonacci;
+    FirstFibonacci=SecondFibonacci;
   }
 
 
-  cout << "Sum of even Fibonacci sequence, up to " << UpperLimit << " is: " << Fibonacci << endl;
+  //  cout << "Sum of even Fibonacci sequence, up to " << UpperLimit << " is: " << endl;
 
 
-  //for (int j=0; j<EvenNumbers.size();j++){
-  //cout << EvenNumbers[j] <<" ";
-  //}
+  for (int j=0; j<FibonacciSequence.size();j++){
+  cout << FibonacciSequence[j] <<" ";
+  }
 
 }

@@ -6,38 +6,63 @@
 //         By considering the terms in the Fibonacci sequence whose values do not
 //         exceed four million, find the sum of the even-valued terms.
 // Date of first attempt: 2015-06-10 
-// Date completed: -, -th person to complete.
+// Date completed: 2015-06-24, 38712th person to complete.
 
 #include <iostream>
 #include <vector>
+#include <numeric>
 
 using namespace std;
 
-vector <int> FibonacciSequence;
-int UpperLimit;
+vector <int> FibonacciSequence; //Vector containing Fibonacci Sequence
+vector <int> EvenFibonacciSequence; //Vector containing only the even numbers in the Fibonacci Sequence
+int EvenFibonacciSum; //Sum of EvenFibonacciSequence's elements 
+int UpperLimit; //User-selected Fibonacci number ceiling value
 
 int main(){
-
-  //cout << "Upper Limit? ";
-  //cin >> UpperLimit;
 
   int FirstFibonacci=0;
   int SecondFibonacci=1;
   int ThirdFibonacci;
 
-  for (int i=0; i<=10; i++){
+  cout << "Enter Fibonacci sequence maximum value:" << endl;
+  cin >> UpperLimit;
+
+
+  //Generate Fibonacci Sequence:
+
+  while (ThirdFibonacci < UpperLimit){
     ThirdFibonacci=FirstFibonacci+SecondFibonacci;
+    if (ThirdFibonacci > UpperLimit){
+      break;
+    }
     FibonacciSequence.push_back(ThirdFibonacci);
-    SecondFibonacci=ThirdFibonacci;
     FirstFibonacci=SecondFibonacci;
+    SecondFibonacci=ThirdFibonacci;
   }
 
+  //Print out Fibonacci Sequence:
+  //for (int j=0; j<FibonacciSequence.size();j++){
+  //cout << FibonacciSequence[j] <<" ";
+  //}
 
-  cout << "Sum of even Fibonacci sequence, up to " << UpperLimit << " is: " << endl;
-
-
-  for (int j=0; j<FibonacciSequence.size();j++){
-  cout << FibonacciSequence[j] <<" ";
+  //Pick out even numbers:
+  for (int k=0; k<=FibonacciSequence.size(); k++){
+    if (FibonacciSequence[k] % 2 == 0){
+      EvenFibonacciSequence.push_back(FibonacciSequence[k]);
+    }
   }
+
+  //Print EvenFibonacciSequence vector:
+  //for (int l=0; l<EvenFibonacciSequence.size();l++){   
+  //cout << EvenFibonacciSequence[l] <<" ";               
+  //} 
+
+  //Sum elements of EvenFibonacciSequence:
+  EvenFibonacciSum = std::accumulate(EvenFibonacciSequence.begin(), EvenFibonacciSequence.end(), 0);
+
+  cout << "Sum of even Fibonacci sequence, up to " << UpperLimit << " is: " << EvenFibonacciSum << endl;
+
+  //Solution: 4613732
 
 }
